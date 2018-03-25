@@ -5,7 +5,7 @@ This boilerplate is based on https://github.com/lean/phaser-es6-webpack.
 Using Phaser3 and webpack/browser-sync as the server.
 Webpack is configured with the minimum options to build this project.
 
-![Running example](https://giphy.com/gifs/phaser-2voemgRSAssCAn7Ffz)
+![Running example](https://media.giphy.com/media/2voemgRSAssCAn7Ffz/giphy.gif)
 
 # Thanks to
 - The Phaser team @photonstorm, @mikewesthad and @pavle-goloskokovic for building Phaser 3 in general and for assisting while building this.
