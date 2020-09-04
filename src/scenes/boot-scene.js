@@ -1,6 +1,8 @@
 import Phaser from 'phaser';
+import GameManager from '../scripts/game-manager';
+import MainMenu from '../scripts/main-menu';
 
-class BootScene extends Phaser.Scene {
+export default class BootScene extends Phaser.Scene {
   constructor() {
     super({
       key: 'BootScene'
@@ -16,6 +18,14 @@ class BootScene extends Phaser.Scene {
   }
 
   create() {
+    GameManager.instance.publicFunction();
+    GameManager.instance._privateFunction();
+    
+    this.mainMenu = new MainMenu(this, 100, 100);
+
+
+
+    // Negeren
     this.add.image(400, 300, 'undersea');
 
     var particles = this.add.particles('bubble');
@@ -35,5 +45,3 @@ class BootScene extends Phaser.Scene {
     emitter.startFollow(logo);
   }
 }
-
-export default BootScene;
