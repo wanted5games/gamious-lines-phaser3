@@ -1,5 +1,7 @@
 import Phaser from 'phaser';
 import BootScene from './scenes/boot-scene';
+import GameScene from './scenes/game-scene';
+import BumperScene from './scenes/bumper-scene';
 
 var config = {
   type: Phaser.AUTO,
@@ -12,10 +14,10 @@ var config = {
     }
   },
   scale: {
-    mode: Phaser.Scale.FIT,
-    autoCenter: Phaser.Scale.CENTER_BOTH
-},
-  scene: [BootScene]
+    mode: Phaser.Scale.NONE,
+    //autoCenter: Phaser.Scale.CENTER_BOTH
+  },
+  scene: [BootScene, BumperScene, GameScene]
 };
 
-var game = new Phaser.Game(config);
+const game = new Phaser.Game(config);
