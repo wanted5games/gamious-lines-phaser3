@@ -1,47 +1,27 @@
 import Phaser from 'phaser';
 import GameManager from '../scripts/game-manager';
 import MainMenu from '../scripts/main-menu';
+import ViewportManager from '../scripts/managers/viewport-manager';
 
 export default class BootScene extends Phaser.Scene {
   constructor() {
     super({
       key: 'BootScene'
-    })
+    });
+  }
+
+  init() {
+    ViewportManager.instance.initializeScene(this);
   }
 
   preload() {
-    this.load.setBaseURL('http://labs.phaser.io');
-
-    this.load.image('undersea', 'assets/ui/undersea-bg.png');
-    this.load.image('logo', 'assets/sprites/phaser3-logo.png');
-    this.load.image('bubble', 'assets/particles/bubble.png');
+    // Load images needed for the bumper scene.
+    this.load.image('logo', 'assets/sprites/spr_bumper_gamious_dotless.png')
+    this.load.image('undersea', 'assets/undersea-bg.png');
+    this.load.image('bubble', 'assets/bubble.png');
   }
 
   create() {
-    GameManager.instance.publicFunction();
-    GameManager.instance._privateFunction();
-    
-    this.mainMenu = new MainMenu(this, 100, 100);
-
-
-
-    // Negeren
-    this.add.image(400, 300, 'undersea');
-
-    var particles = this.add.particles('bubble');
-
-    var emitter = particles.createEmitter({
-      speed: 100,
-      scale: { start: 1, end: 0 },
-      blendMode: 'ADD'
-    });
-
-    var logo = this.physics.add.image(400, 100, 'logo');
-
-    logo.setVelocity(100, 200);
-    logo.setBounce(1, 1);
-    logo.setCollideWorldBounds(true);
-
-    emitter.startFollow(logo);
+    this.scene.start('BumperScene');
   }
 }
